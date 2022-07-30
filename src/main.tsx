@@ -1,13 +1,14 @@
-import './index.scss';
-
+import { MantineProvider } from '@mantine/core';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
-import App from './App';
+import { App } from './App';
 
-ReactDOM.render(
+render(
   <React.StrictMode>
-    <App />
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <App />
+    </MantineProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
