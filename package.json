@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "tsc && vite build",
+    "build:ci": "tsc && vite build --base https://mkman.github.io/feed-aggregator/",
     "deploy": "gh-pages -d dist -u \"github-actions-bot <support+actions@github.com>\"",
     "e2e:open": "concurrently -k -s first \"npm start\" \"cypress open\"",
     "e2e:run": "concurrently -k -s first \"npm start\" \"cypress run\"",
