@@ -1,7 +1,7 @@
 import { Container, Space, Title } from '@mantine/core';
 
-import { CloseButtonsGroup } from './components';
-import { useSaveArrayState } from './hooks';
+import { CardSkeleton, CloseButtonsGroup, Feed } from './components';
+import { useGetFeedByUsernames, useSaveArrayState } from './hooks';
 import { SearchField } from './search-field';
 
 const App = () => {
@@ -10,6 +10,8 @@ const App = () => {
     addValue: addUserName,
     removeValue: removeUserName,
   } = useSaveArrayState<string>();
+
+  const { feed, isLoading } = useGetFeedByUsernames(userNames);
 
   return (
     <Container size="sm">
@@ -22,6 +24,10 @@ const App = () => {
       />
       <Space h="sm" />
       <CloseButtonsGroup buttonLabels={userNames} onClick={removeUserName} />
+      <Space h="xl" />
+      {isLoading && <CardSkeleton />}
+      {!isLoading && <Feed feed={feed} />}
+      <Space h="xl" />
     </Container>
   );
 };
