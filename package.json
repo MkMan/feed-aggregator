@@ -1,7 +1,7 @@
 {
   "name": "vite-project",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "tsc && vite build",
     "build:ci": "tsc && vite build --base https://mkman.github.io/feed-aggregator/",
@@ -17,7 +17,8 @@
     "sanity-check": "npm run lint:check && npm run format:check && npm test && npm run e2e:run",
     "start": "vite --port 4000",
     "test:watch": "vitest watch --coverage",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@emotion/react": "11.9.3",
@@ -30,6 +31,8 @@
   "devDependencies": {
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/git": "10.0.1",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.3",
     "@testing-library/user-event": "13.5.0",
@@ -53,6 +56,7 @@
     "markdownlint": "0.26.0",
     "markdownlint-cli": "0.32.0",
     "prettier": "2.7.1",
+    "semantic-release": "^19.0.3",
     "typescript": "4.6.4",
     "vite": "3.0.2",
     "vitest": "0.18.1"
@@ -61,5 +65,9 @@
     "*.{js,ts,tsx}": "eslint --cache --fix",
     "*.{js,ts,tsx,css,md,json}": "prettier --write",
     "*.md": "markdownlint --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MkMan/feed-aggregator.git"
   }
 }

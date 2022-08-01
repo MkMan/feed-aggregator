@@ -1,8 +1,6 @@
-name: Deploy to GH Pages
+name: Verify build works
 
-on:
-  push:
-    branches: [ "main" ]
+on: push
 
 jobs:
   build:
@@ -10,6 +8,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GH_TOKEN }}
 
     - name: Setup pnpm
       uses: pnpm/action-setup@v2.2.2
@@ -28,9 +28,7 @@ jobs:
     - name: Build project
       run: pnpm run build:ci
 
-    - name: Deploy
+    - name: Run Semantic release
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        pnpm run deploy
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: pnpm run semantic-release
