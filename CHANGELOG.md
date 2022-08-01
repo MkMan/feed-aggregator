@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/MkMan/feed-aggregator/compare/v1.1.0...v1.1.1) (2022-08-01)
+
+
+### Bug Fixes
+
+* correct production url ([6cb8e75](https://github.com/MkMan/feed-aggregator/commit/6cb8e756bf6390fbb6b5140773e9723e2dac9bc9))
+
 # [1.1.0](https://github.com/MkMan/feed-aggregator/compare/v1.0.0...v1.1.0) (2022-08-01)
 
 
