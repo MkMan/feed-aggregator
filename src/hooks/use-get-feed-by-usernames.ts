@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { TweetToDisplay } from '../types';
 
-const baseUrl =
-  'https://nca3wrcallnv4gsf7ffl2xf5ve0mwxcz.lambda-url.ap-southeast-2.on.aws/';
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const useGetFeedByUsernames = (userNames: string[]) => {
   const [feed, setFeed] = useState<TweetToDisplay[]>([]);
