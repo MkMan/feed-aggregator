@@ -15,7 +15,7 @@
     "prepare": "husky install",
     "preview": "vite preview",
     "sanity-check": "npm run lint:check && npm run format:check && npm test && npm run e2e:run",
-    "start": "concurrently -k -s first \"vite --port 4000\" \"nodemon ./mock-server\"",
+    "start": "concurrently -k -s first \"vite --port 4000 --open\" \"nodemon ./mock-server\"",
     "test:watch": "vitest watch --coverage",
     "test": "vitest run --coverage",
     "semantic-release": "semantic-release"
