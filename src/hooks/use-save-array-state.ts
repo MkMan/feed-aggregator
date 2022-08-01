@@ -1,27 +1,26 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
-const useSaveArrayState = <StateType>() => {
-  const setRef = useRef<Set<StateType>>(new Set());
-  const [state, setState] = useState(Array.from(setRef.current));
+const useSaveArrayState = <StateType>(initialValue?: StateType[]) => {
+  const [state, setState] = useState<Set<StateType>>(new Set(initialValue));
 
-  const addValue = (value: StateType) => {
-    if (!setRef.current.has(value)) {
-      setRef.current.add(value);
-      setState(Array.from(setRef.current));
+  const add = (value: StateType) => {
+    if (!state.has(value)) {
+      state.add(value);
+      setState(new Set(state));
     }
   };
 
-  const removeValue = (value: StateType) => {
-    if (setRef.current.has(value)) {
-      setRef.current.delete(value);
-      setState(Array.from(setRef.current));
+  const remove = (value: StateType) => {
+    if (state.has(value)) {
+      state.delete(value);
+      setState(new Set(state));
     }
   };
 
   return {
-    state,
-    addValue,
-    removeValue,
+    state: Array.from(state),
+    add,
+    remove,
   };
 };
 

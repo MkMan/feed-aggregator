@@ -25,7 +25,8 @@ const useGetFeedByUsernames = (userNames: string[]) => {
         setIsLoading(false);
         setFeed(parsedResponse);
       });
-  }, [userNames, userNames.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run only when the count changes
+  }, [userNames.length]);
 
   return { feed, isLoading };
 };
